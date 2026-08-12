@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(180deg,#f0f7ff 0%, #ffffff 40%);
+            color: #222;
+        }
+        nav {
+            background-color: #333;
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .hero {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            margin: 20px;
+        }
+        .hero-image { flex: 1; }
+        .hero-image img { width: 100%; height: 480px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(10,20,40,0.18); }
+        .hero-content { flex: 1; background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.95)); padding: 28px; border-radius: 12px; box-shadow: 0 8px 20px rgba(20,40,80,0.06); }
+        .hero-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin: 0 0 8px 0; color: #0f2133 }
+        .hero-lead { color:#334155; margin-bottom:12px; font-size:1.05rem }
+        .hero-cta { display:inline-block; margin-top:12px; padding:12px 20px; background:linear-gradient(90deg,#ff6b6b,#ff4757); color:white; text-decoration:none; border-radius:999px; font-weight:700 }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .destination-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            display:block;
+        }
+        .card .label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.45);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight:600;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+        }
+        .card button {
+            background: linear-gradient(90deg,#ff7a18,#af002d);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            margin: 12px 0 16px 0;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform .15s, box-shadow .15s;
+        }
+        .card button:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(175,0,45,0.2); }
+        .card.tokyo { background: linear-gradient(180deg,#fff6f8,#fff0f3); border-top:6px solid #ff6b6b }
+        .card.kyoto { background: linear-gradient(180deg,#f7fbff,#eef8ff); border-top:6px solid #4da3ff }
+        .card.fuji { background: linear-gradient(180deg,#f8fff4,#efffe8); border-top:6px solid #3ad29f }
+        .card.osaka { background: linear-gradient(180deg,#fffaf4,#fff3e6); border-top:6px solid #ffb74d }
+        .card.hokkaido { background: linear-gradient(180deg,#f6f7ff,#eef0ff); border-top:6px solid #8c7bff }
+        .card h3 { margin: 10px 0 6px 0 }
+        .card p { color: #444; opacity:0.95; padding: 0 10px 6px 10px }
+        .hero-gallery { display:flex; gap:12px; margin-top:14px; justify-content:center }
+        .hero-gallery img { width:130px; height:82px; object-fit:cover; border-radius:8px; border:3px solid rgba(255,255,255,0.12); box-shadow:0 6px 18px rgba(10,20,40,0.18) }
+        footer {
+            background: linear-gradient(90deg,#0f1724 0%, #12263b 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 10px;
+            width: 100%;
+            margin-top: 30px;
+            position: relative;
+        }
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 999px;
+            font-weight: 600;
+        }
+        .footer-wave { display:block; width:100%; height:40px; margin-bottom:-40px }
+        @media (max-width: 600px) {
+            .destination-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#destinations">Destinations</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to Your Dream Travel</h1>
+            <p class="hero-lead">Explore Japan's mix of ancient tradition and modern wonders — from tranquil temples and cherry blossoms to neon-lit cityscapes and snowy peaks.</p>
+            <p style="margin:0 0 12px 0; color:#475569;">Browse hand-picked destinations, find local experiences, and plan your perfect itinerary. Start by exploring featured spots below or contact us for a custom trip.</p>
+            <a class="hero-cta" href="#destinations">Explore Destinations</a>
+            <div class="hero-gallery" aria-hidden="true">
+                <img src="https://www.faroway.ai/_next/image?url=https%3A%2F%2Fjcnephijkxgtprsutgsf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimages%2Fdestinations%2Ftokyo-photo-1540959733332-eab4deabeeaf.jpg&w=3840&q=75" alt="Tokyo">
+                <img src="https://avgtravels.com/nz/wp-content/uploads/sites/3/Cherry-Blossoms-Japan-AVG-Travels-scaled.jpg" alt="Cherry blossoms">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=60" alt="Mount Fuji">
+            </div>
+        </div>
+        <div class="hero-image" aria-hidden="false">
+            <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1400&q=80" alt="Fushimi Inari Taisha, Kyoto - iconic red torii gates">
+        </div>
+    </div>
+    <div class="destination-cards" id="destinations">
+        <div class="card tokyo">
+            <img src="https://images.unsplash.com/photo-1508896694512-7a2f6d8b2dff?auto=format&fit=crop&w=1600&q=80" alt="Tokyo skyline">
+            <div class="label">Tokyo</div>
+            <h3>Tokyo</h3>
+            <p>Experience the vibrant city life.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card kyoto">
+            <img src="https://images.unsplash.com/photo-1526481280698-2e0b1f7b0f1e?auto=format&fit=crop&w=1600&q=80" alt="Cherry blossoms">
+            <div class="label">Kyoto</div>
+            <h3>Kyoto</h3>
+            <p>Discover ancient temples and gardens.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card fuji">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80" alt="Mount Fuji">
+            <div class="label">Mount Fuji</div>
+            <h3>Mount Fuji</h3>
+            <p>Enjoy breathtaking views.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card osaka">
+            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80" alt="Dotonbori, Osaka at night">
+            <div class="label">Osaka</div>
+            <h3>Osaka</h3>
+            <p>Indulg in delicious street food.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card hokkaido">
+            <img src="https://images.unsplash.com/photo-1542417196-24c6c26f1b6f?auto=format&fit=crop&w=1600&q=80" alt="Hokkaido landscape">
+            <div class="label">Hokkaido</div>
+            <h3>Hokkaido</h3>
+            <p>Experience stunning natural beauty.</p>
+            <button>Explore</button>
+        </div>
+    </div>
+    <section class="map-panel" style="width:100%; max-width:1200px; margin:18px; display:flex; gap:18px; align-items:flex-start;">
+        <div style="flex:1; min-width:280px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153165!3d-37.81627997975154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11b1f3%3A0x5045675218ceed0!2sMelbourne%20Australia!5e0!3m2!1sen!2sus!4v1616161616161!5m2!1sen!2sus" width="100%" height="420" style="border:0; border-radius:8px; box-shadow:0 8px 24px rgba(10,20,40,0.12)" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <aside style="flex:1; min-width:260px; background:white; padding:18px; border-radius:10px; box-shadow:0 8px 24px rgba(10,20,40,0.06);">
+            <h3 style="margin-top:0; font-family:'Playfair Display', serif;">Featured Destinations</h3>
+            <div style="margin-top:8px;">
+                <strong>Tokyo</strong>
+                <p style="margin:6px 0 12px 0; color:#475569">A bustling metropolis of neon skyscrapers, sushi counters, and peaceful shrines.</p>
+                <strong>Kyoto</strong>
+                <p style="margin:6px 0 12px 0; color:#475569">Ancient temples, tea houses, and serene gardens — step back in time.</p>
+                <strong>Mount Fuji</strong>
+                <p style="margin:6px 0 12px 0; color:#475569">Iconic peak with stunning hiking routes and postcard views.</p>
+                <strong>Osaka</strong>
+                <p style="margin:6px 0 12px 0; color:#475569">A food lover’s paradise — lively markets and street-food alleys.</p>
+                <strong>Hokkaido</strong>
+                <p style="margin:6px 0 0 0; color:#475569">Unspoiled nature: hot springs, ski resorts, and wildflower fields.</p>
+            </div>
+        </aside>
+    </section>
+    <svg class="footer-wave" viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M0,0 C300,100 900,0 1200,100 L1200,100 L0,100 Z" fill="#0f1724"/></svg>
+    <footer>
+        <div style="display:flex; justify-content:center; gap:18px; align-items:center; flex-wrap:wrap;">
+            <div style="background:rgba(255,255,255,0.05); padding:12px 18px; border-radius:10px; display:flex; gap:12px; align-items:center;">
+                <div style="font-size:22px;">✉️</div>
+                <div style="text-align:left">
+                    <div style="font-weight:700">Get in touch</div>
+                    <div style="opacity:0.85">custom trips & inquiries</div>
+                </div>
+                <a href="contact.html" style="margin-left:12px; padding:8px 12px; background:#ff6b6b; color:white; border-radius:8px; text-decoration:none; font-weight:700">Contact Us</a>
+            </div>
+            <div class="footer-nav">
+                <a href="#home">Home</a>
+                <a href="#destinations">Destinations</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div style="opacity:0.85; font-size:0.95em; margin-top:12px">&copy; 2023 Travel Website • Made with ♥</div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        nav {
+            background-color: #333;
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .hero {
+            background-image: url('images/hero.jpg');
+            height: 400px;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .destination-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            .destination-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#destinations">Destinations</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="hero">
+        Welcome to Your Dream Travel
+    </div>
+    <div class="destination-cards" id="destinations">
+        <div class="card">
+            <img src="https://media.digitalnomads.world/wp-content/uploads/2021/02/20120635/tokyo-for-digital-nomads.jpg" alt="Destination 1">
+            <h3>Tokyo</h3>
+            <p>Experience the vibrant city life.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card">
+            <img src="https://images.squarespace-cdn.com/content/v1/5db2c1c870cf53160ba6a917/1575677318448-Y2P5TT0GG32FPYLBXK3X/79.jpg" alt="Destination 2">
+            <h3>Kyoto</h3>
+            <p>Discover ancient temples and gardens.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card">
+            <img src="https://media.digitalnomads.world/wp-content/uploads/2021/02/20120635/mount-fuji-for-digital-nomads.jpg" alt="Destination 3">
+            <h3>Mount Fuji</h3>
+            <p>Enjoy breathtaking views.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card">
+            <img src="https://media.digitalnomads.world/wp-content/uploads/2021/02/20120635/osaka-for-digital-nomads.jpg" alt="Destination 4">
+            <h3>Osaka</h3>
+            <p>Indulge in delicious street food.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card">
+            <img src="https://tampamagazines.com/wp-content/uploads/2025/03/Skiing-in-Hokkaido-scaled.jpg" alt="Destination 5">
+            <h3>Hokkaido</h3>
+            <p>Experience stunning natural beauty.</p>
+            <button>Explore</button>
+        </div>
+    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153165!3d-37.81627997975154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11b1f3%3A0x5045675218ceed0!2sMelbourne%20Australia!5e0!3m2!1sen!2sus!4v1616161616161!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <footer>
+        &copy; 2023 Travel Website
+    </footer>
+</body>
+</html>

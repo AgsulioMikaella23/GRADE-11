@@ -1,12 +1,13 @@
 :root {
-    --bg: #f6f7fb;
-    --surface: #ffffff;
-    --text: #1f2937;
-    --muted: #6b7280;
-    --primary: #4f46e5;
-    --primary-dark: #3730a3;
-    --border: #e5e7eb;
-    --shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    --bg: #f8f4ed;
+    --surface: #fffdf8;
+    --text: #252321;
+    --muted: #756f68;
+    --primary: #d85c3d;
+    --primary-dark: #273f3b;
+    --accent: #e8b94f;
+    --border: #e6ddd0;
+    --shadow: 0 14px 32px rgba(54, 43, 31, 0.08);
 }
 
 * {
@@ -19,10 +20,10 @@ html {
 
 body {
     margin: 0;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Georgia, "Times New Roman", serif;
     line-height: 1.7;
     color: var(--text);
-    background: linear-gradient(180deg, #fcfdff 0%, var(--bg) 100%);
+    background: linear-gradient(180deg, #fffdf8 0%, var(--bg) 100%);
 }
 
 img {
@@ -117,11 +118,24 @@ h2 {
 }
 
 .hero-content {
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    background: linear-gradient(120deg, var(--primary-dark) 0%, #39635b 100%);
     color: #fff;
     padding: 3rem;
     border-radius: 24px;
     box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    right: 7%;
+    top: -70px;
+    border: 26px solid rgba(232, 185, 79, 0.7);
+    border-radius: 50%;
 }
 
 .hero-content p {
@@ -154,8 +168,126 @@ h2 {
     background: var(--surface);
     padding: 1.4rem;
     border: 1px solid var(--border);
-    border-radius: 18px;
+    border-radius: 10px;
     box-shadow: var(--shadow);
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr;
+    gap: 1.2rem;
+}
+
+.about-intro {
+    display: flex;
+    gap: 1.3rem;
+    align-items: flex-start;
+}
+
+.profile-mark {
+    display: grid;
+    flex: 0 0 70px;
+    height: 70px;
+    place-items: center;
+    background: var(--accent);
+    color: var(--primary-dark);
+    border-radius: 50%;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.card-label {
+    margin: 0 0 0.45rem;
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.quote-card {
+    padding: 1.5rem;
+    background: var(--accent);
+    border-radius: 10px;
+    color: var(--primary-dark);
+}
+
+.quote-card p:not(.quote-mark) {
+    font-size: 1.15rem;
+    font-style: italic;
+}
+
+.quote-mark {
+    margin: 0;
+    font-size: 3rem;
+    line-height: 0.6;
+}
+
+.quote-card span {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.interest-grid {
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.interest-card {
+    border-top: 4px solid var(--primary);
+}
+
+.interest-number {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.food-banner {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 1.2rem;
+    padding: 1.4rem 1.6rem;
+    background: var(--primary-dark);
+    color: #fffdf8;
+    border-radius: 10px;
+}
+
+.food-banner h3,
+.food-banner p {
+    margin-bottom: 0;
+}
+
+.food-banner > p {
+    max-width: 300px;
+    color: #dce7df;
+}
+
+.support-section {
+    padding-top: 2rem;
+}
+
+.support-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: #eadfd0;
+    border-left: 7px solid var(--primary);
+    border-radius: 10px;
+}
+
+.support-content h2 {
+    margin-bottom: 0.4rem;
+}
+
+.button-dark {
+    flex: 0 0 auto;
+    background: var(--primary-dark);
+    color: #fff;
 }
 
 .skills-grid,
@@ -200,8 +332,17 @@ h2 {
     }
 
     .skills-grid,
-    .projects-grid {
+    .projects-grid,
+    .interest-grid {
         grid-template-columns: 1fr;
+    }
+
+    .about-layout,
+    .food-banner,
+    .support-content {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .hero-content {

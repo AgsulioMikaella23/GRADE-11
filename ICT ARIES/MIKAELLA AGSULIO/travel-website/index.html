@@ -143,6 +143,78 @@
                 align-items: center;
             }
         }
+        :root {
+            --ink: #17212b;
+            --muted: #59636e;
+            --red: #c83b43;
+            --deep-red: #8f2633;
+            --cream: #fffaf2;
+            --paper: #fffdf9;
+        }
+        body {
+            align-items: stretch;
+            background: var(--cream);
+            color: var(--ink);
+        }
+        nav {
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            background: rgba(23, 33, 43, .96);
+            padding: 10px clamp(20px, 6vw, 88px);
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+        nav::before {
+            content: '旅  •  TABI';
+            color: #fff8ef;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            letter-spacing: .08em;
+        }
+        nav a { border-radius: 4px; font-size: .88rem; letter-spacing: .04em; }
+        nav a:hover { background: var(--red); }
+        .hero {
+            max-width: none;
+            box-sizing: border-box;
+            gap: clamp(24px, 5vw, 76px);
+            margin: 0;
+            padding: clamp(56px, 9vw, 116px) clamp(20px, 8vw, 120px);
+            background: linear-gradient(110deg, #fffaf2 0%, #fffaf2 47%, #f0e5d6 47%, #f0e5d6 100%);
+        }
+        .hero-content { max-width: 550px; padding: 0; background: transparent; box-shadow: none; }
+        .hero-content::before { content: 'JAPAN / 01'; display: block; color: var(--red); font-size: .75rem; font-weight: 700; letter-spacing: .2em; margin-bottom: 18px; }
+        .hero-title { color: var(--ink); font-size: clamp(2.5rem, 5vw, 5rem); line-height: 1.02; }
+        .hero-lead { color: var(--muted); font-size: 1.08rem; line-height: 1.8; }
+        .hero-cta { background: var(--red); border-radius: 4px; padding: 14px 22px; }
+        .hero-cta:hover { background: var(--deep-red); }
+        .hero-image img { height: clamp(340px, 52vw, 580px); border-radius: 3px; box-shadow: 18px 18px 0 #d6aa78; }
+        .hero-gallery { justify-content: flex-start; }
+        .hero-gallery img { border-radius: 3px; filter: saturate(.82); }
+        .destination-cards { max-width: 1200px; align-self: center; width: calc(100% - 40px); margin: 74px auto 32px; gap: 18px; }
+        .destination-cards::before { content: 'PLACES WORTH THE JOURNEY'; width: 100%; color: var(--red); font-size: .76rem; font-weight: 700; letter-spacing: .18em; text-align: center; }
+        .card { flex: 1 1 180px; width: auto; margin: 0; background: var(--paper); border: 1px solid #eadfce; border-top: 4px solid var(--red); border-radius: 3px; box-shadow: 0 12px 30px rgba(67, 44, 25, .08); }
+        .card:hover { transform: translateY(-8px); }
+        .card img { height: 180px; border-radius: 0; }
+        .card .label { background: var(--red); border-radius: 0; font-size: .75rem; letter-spacing: .08em; }
+        .card h3 { color: var(--ink); font-family: 'Playfair Display', serif; font-size: 1.35rem; }
+        .card p { color: var(--muted); font-size: .88rem; line-height: 1.6; }
+        .card button { background: transparent; color: var(--red); border: 1px solid var(--red); border-radius: 3px; font-weight: 700; }
+        .card button:hover { color: white; background: var(--red); box-shadow: none; }
+        .map-panel { align-self: center; box-sizing: border-box; padding: 0 20px; }
+        .map-panel aside { background: #17212b !important; color: #fff8ef; border-radius: 3px !important; box-shadow: 12px 12px 0 #d6aa78 !important; }
+        .map-panel aside p { color: #d6dce0 !important; }
+        footer { margin-top: 70px; background: var(--ink); }
+        @media (max-width: 760px) {
+            nav { justify-content: center; flex-wrap: wrap; }
+            nav::before { width: 100%; text-align: center; margin-bottom: 4px; }
+            nav a { padding: 10px 9px; }
+            .hero { display: flex; flex-direction: column-reverse; align-items: stretch; background: var(--cream); }
+            .hero-image img { height: 360px; box-shadow: 10px 10px 0 #d6aa78; }
+            .map-panel { flex-direction: column; }
+            .map-panel > div, .map-panel aside { width: 100%; min-width: 0 !important; }
+        }
     </style>
 </head>
 <body>
@@ -153,7 +225,7 @@
     </nav>
     <div class="hero" id="home">
         <div class="hero-content">
-            <h1 class="hero-title">Welcome to Your Dream Travel</h1>
+            <h1 class="hero-title">Find your way to Japan.</h1>
             <p class="hero-lead">Explore Japan's mix of ancient tradition and modern wonders — from tranquil temples and cherry blossoms to neon-lit cityscapes and snowy peaks.</p>
             <p style="margin:0 0 12px 0; color:#475569;">Browse hand-picked destinations, find local experiences, and plan your perfect itinerary. Start by exploring featured spots below or contact us for a custom trip.</p>
             <a class="hero-cta" href="#destinations">Explore Destinations</a>
@@ -206,7 +278,7 @@
     </div>
     <section class="map-panel" style="width:100%; max-width:1200px; margin:18px; display:flex; gap:18px; align-items:flex-start;">
         <div style="flex:1; min-width:280px;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153165!3d-37.81627997975154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11b1f3%3A0x5045675218ceed0!2sMelbourne%20Australia!5e0!3m2!1sen!2sus!4v1616161616161!5m2!1sen!2sus" width="100%" height="420" style="border:0; border-radius:8px; box-shadow:0 8px 24px rgba(10,20,40,0.12)" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps?q=Japan&output=embed" width="100%" height="420" style="border:0; border-radius:8px; box-shadow:0 8px 24px rgba(10,20,40,0.12)" allowfullscreen="" loading="lazy" title="Map of Japan"></iframe>
         </div>
         <aside style="flex:1; min-width:260px; background:white; padding:18px; border-radius:10px; box-shadow:0 8px 24px rgba(10,20,40,0.06);">
             <h3 style="margin-top:0; font-family:'Playfair Display', serif;">Featured Destinations</h3>

@@ -1,131 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fil">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        nav {
-            background-color: #333;
-            width: 100%;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-        }
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-align: center;
-        }
-        nav a:hover {
-            background-color: #575757;
-        }
-        .hero {
-            background-image: url('images/hero.jpg');
-            height: 400px;
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2em;
-            animation: fadeIn 2s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .destination-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 20px;
-        }
-        .card {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 10px;
-            width: 200px;
-            text-align: center;
-            transition: transform 0.2s;
-        }
-        .card:hover {
-            transform: scale(1.05);
-        }
-        .card img {
-            width: 100%;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            width: 100%;
-        }
-        @media (max-width: 600px) {
-            .destination-cards {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+    <title>Hikari Japan | Travel Explorer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#destinations">Destinations</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-    <div class="hero">
-        Welcome to Your Dream Travel
-    </div>
-    <div class="destination-cards" id="destinations">
-        <div class="card">
-            <img src="https://media.digitalnomads.world/wp-content/uploads/2021/02/20120635/tokyo-for-digital-nomads.jpg" alt="Destination 1">
-            <h3>Tokyo</h3>
-            <p>Experience the vibrant city life.</p>
-            <button>Explore</button>
-        </div>
-        <div class="card">
-            <img src="https://images.squarespace-cdn.com/content/v1/5db2c1c870cf53160ba6a917/1575677318448-Y2P5TT0GG32FPYLBXK3X/79.jpg" alt="Destination 2">
-            <h3>Kyoto</h3>
-            <p>Discover ancient temples and gardens.</p>
-            <button>Explore</button>
-        </div>
-        <div class="card">
-            <img src="https://media.digitalnomads.world/wp-content/uploads/2021/02/20120635/mount-fuji-for-digital-nomads.jpg" alt="Destination 3">
-            <h3>Mount Fuji</h3>
-            <p>Enjoy breathtaking views.</p>
-            <button>Explore</button>
-        </div>
-        <div class="card">
-            <img src="https://media.digitalnomads.world/wp-content/uploads/2021/02/20120635/osaka-for-digital-nomads.jpg" alt="Destination 4">
-            <h3>Osaka</h3>
-            <p>Indulge in delicious street food.</p>
-            <button>Explore</button>
-        </div>
-        <div class="card">
-            <img src="https://tampamagazines.com/wp-content/uploads/2025/03/Skiing-in-Hokkaido-scaled.jpg" alt="Destination 5">
-            <h3>Hokkaido</h3>
-            <p>Experience stunning natural beauty.</p>
-            <button>Explore</button>
-        </div>
-    </div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153165!3d-37.81627997975154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11b1f3%3A0x5045675218ceed0!2sMelbourne%20Australia!5e0!3m2!1sen!2sus!4v1616161616161!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    <footer>
-        &copy; 2023 Travel Website
-    </footer>
+    <header class="site-header">
+        <a class="brand" href="#home">HIKARI <span>JAPAN</span></a>
+        <nav aria-label="Primary navigation">
+            <ul class="nav-list">
+                <li><a href="#home" aria-current="page">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="japan-hero" id="home">
+            <div class="hero-content">
+                <p class="eyebrow">旅 • Tabi • Travel</p>
+                <h1>Discover the soul of Japan.</h1>
+                <p>A journey from Tokyo's neon lights to the quiet landscapes of Hokkaido.</p>
+                <a class="hero-link" href="#destinations">Explore the destinations <span aria-hidden="true">&#8594;</span></a>
+            </div>
+            <p class="hero-note">04 seasons · countless stories</p>
+        </section>
+
+        <section class="intro" aria-labelledby="destinations-title">
+            <p class="eyebrow">Places to discover</p>
+            <h2 id="destinations-title">Five ways to feel Japan</h2>
+            <p>Choose your next view, flavor, and story.</p>
+        </section>
+
+        <section class="destination-grid" id="destinations">
+            <article class="destination-card destination-card--wide">
+                <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=85" alt="Tokyo skyline with Tokyo Tower" loading="lazy">
+                <div class="card-content"><p class="card-number">01 / CITY ENERGY</p><h3>Tokyo</h3><p>A city that never sleeps: neon streets, Shibuya Crossing, and tradition in Asakusa.</p><a href="https://www.gotokyo.org/en/" target="_blank" rel="noopener">Discover Tokyo <span aria-hidden="true">&#8594;</span></a></div>
+            </article>
+            <article class="destination-card">
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=85" alt="Red torii gates in Kyoto" loading="lazy">
+                <div class="card-content"><p class="card-number">02 / OLD JAPAN</p><h3>Kyoto</h3><p>Experience the quiet beauty of Fushimi Inari, the bamboo grove, and ancient temples.</p><a href="https://kyoto.travel/en/" target="_blank" rel="noopener">Discover Kyoto <span aria-hidden="true">&#8594;</span></a></div>
+            </article>
+            <article class="destination-card">
+                <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=900&q=85" alt="Mount Fuji in the morning light" loading="lazy">
+                <div class="card-content"><p class="card-number">03 / NATURE</p><h3>Mount Fuji</h3><p>Take a deep breath by the lake and admire Japan's iconic mountain.</p><a href="https://www.japan.travel/en/fuji-guide/" target="_blank" rel="noopener">Discover Fuji <span aria-hidden="true">&#8594;</span></a></div>
+            </article>
+            <article class="destination-card">
+                <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=900&q=85" alt="Osaka Castle under a clear sky" loading="lazy">
+                <div class="card-content"><p class="card-number">04 / FOOD & FUN</p><h3>Osaka</h3><p>Japan's kitchen: takoyaki, Dotonbori lights, and welcoming local culture.</p><a href="https://osaka-info.jp/en/" target="_blank" rel="noopener">Discover Osaka <span aria-hidden="true">&#8594;</span></a></div>
+            </article>
+            <article class="destination-card destination-card--wide">
+                <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=1200&q=85" alt="Winter landscape in Hokkaido" loading="lazy">
+                <div class="card-content"><p class="card-number">05 / WILD NORTH</p><h3>Hokkaido</h3><p>Snow festivals, lavender fields, and wide-open nature for a slower escape.</p><a href="https://www.visit-hokkaido.jp/en/" target="_blank" rel="noopener">Discover Hokkaido <span aria-hidden="true">&#8594;</span></a></div>
+            </article>
+        </section>
+
+        <section class="map-section" aria-labelledby="map-title">
+            <div><p class="eyebrow">Plan your route</p><h2 id="map-title">Japan, waiting for you.</h2><p>Use the map to start building your itinerary.</p></div>
+            <iframe src="https://www.google.com/maps?q=Japan&output=embed" title="Map of Japan" loading="lazy" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <footer class="site-footer"><p>&copy; 2026 Hikari Japan · Travel Explorer</p></footer>
 </body>
 </html>
